@@ -1,6 +1,9 @@
 <template>
 <div id="navbar">
     <ul class="nav nav-pills flex-column">
+    <router-link class="nav-link active" to="/"><img alt="logo" src="../assets/logo-72x72.png"><h5>PSM Tool</h5></router-link>
+    </ul>
+    <ul class="nav nav-pills flex-column">
         <li class="nav-item">
         <router-link class="nav-link active" to="/">Home</router-link>
         </li>
@@ -19,7 +22,6 @@ export default {
     name: 'Navbar',
     data (){
         return{
-            message: "Marwen"
         }
     }
 }

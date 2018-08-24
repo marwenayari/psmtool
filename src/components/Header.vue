@@ -1,7 +1,5 @@
 <template>
 <div id="header">
-    <img alt="Vue logo" src="../assets/logo-72x72.png">
-    <h1>Welcome to PSM Tool</h1>
 </div>
 </template>
 

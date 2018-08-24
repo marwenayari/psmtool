@@ -5,6 +5,23 @@ import Home from './components/Home.vue'
 import About from './components/About.vue'
 import Plugins from './components/Plugins.vue'
 
+import VueHighlightJS from 'vue-highlight.js'
+//import highlightjs from 'highlightjs/highlight.pack.js'
+
+/*
+ * Use Vue Highlight.js
+ */
+Vue.use(VueHighlightJS);
+
+//highlightjs.initHighlightingOnLoad();
+
+/*
+ * Import Highlight.js theme
+ * Find more: https://highlightjs.org/static/demo/
+ */
+import 'highlight.js/styles/dark.css';
+
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -19,6 +36,7 @@ const router = new VueRouter({
 });
 
 Vue.config.productionTip = false
+
 
 new Vue({
   router,

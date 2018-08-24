@@ -88,35 +88,35 @@
                     </div>
               </div>
             </fieldset>
-            <button type="button" class="btn btn-success btn-lg btn-block">GENERATE</button>
+            <!--<button type="button" class="btn btn-success btn-lg btn-block">GENERATE</button>-->
           </form>
     </section>
     <br>
     <section class="tabs">
             <ul class="nav nav-tabs">
                     <li class="nav-item">
-                      <a class="nav-link active show" data-toggle="tab" href="#privacy">Privacy</a>
+                      <a v-on:click="tab = 'privacy'" v-bind:class="{ active: tab == 'privacy' }" class="nav-link" data-toggle="tab" href="#">Privacy</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link show" data-toggle="tab" href="#web-policy-privacy">Web Policty Privacy</a>
+                      <a v-on:click="tab = 'web-policy-privacy'" v-bind:class="{ active: tab == 'web-policy-privacy' }" class="nav-link" data-toggle="tab" href="#">Web Policty Privacy</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" href="#">Contact</a>
+                      <a v-on:click="tab = 'contact'" v-bind:class="{ active: tab == 'contact' }" class="nav-link" data-toggle="tab" href="#">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#">functions.php</a>
+                        <a v-on:click="tab = 'functions'" v-bind:class="{ active: tab == 'functions' }" class="nav-link " data-toggle="tab" href="#">functions.php</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#">front-page.php</a>
+                        <a  v-on:click="tab = 'front-page'" v-bind:class="{ active: tab == 'front-page' }" class="nav-link" data-toggle="tab" href="#">front-page.php</a>
                     </li>
                   </ul>
                   <div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade active show" id="privacy">
+                    <div v-if="tab == 'privacy'" class="tab-pane fade active show" id="privacy">
                     <div>
                         <section>
                         <div class="code-toolbar">
-                            <pre class="code-toolbar language-markup">
-                                <code class=" language-markup">
+                            <pre class="code-toolbar javascript">
+                                <code class="javascript">
                                     Ai sensi dell’art 13 del D.Lgs. 196/2003 (Codice in materia di protezione dei dati personali) la scrivente {{companyName}}, in qualità di titolare del trattamento, informa che i dati personali acquisiti con riferimento ai rapporti commerciali instaurati formeranno oggetto di trattamento nel rispetto della normativa sopra richiamata.
                                     &lt;br&gt;
                                     In relazione ai suddetti trattamenti fornisce inoltre le seguenti informazioni.
@@ -155,16 +155,30 @@
                         </section>
                     </div>
                     </div>
-                    <div class="tab-pane fade" id="web-policy-privacy">
-                      <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+                    <div v-if="tab == 'web-policy-privacy'" class="tab-pane fade active show" id="web-policy-privacy">
+                    <!-- Code Block -->
+                    <highlight-code lang="javascript">
+                        let str = 'Hello, World!';
+                        console.log(str);
+                        <strong>Hello test</strong>
+                    </highlight-code>
+
+                      <pre v-highlightjs><code class="javascript">// Static source code
+                        function(test) { 
+                            console.log(test)
+                        }</code></pre>
+
+                    <pre><code class="javascript"><strong>Hello test!!</strong></code></pre>
+
+
                     </div>
-                    <div class="tab-pane fade" id="Contact">
+                    <div v-if="tab == 'contact'" class="tab-pane fade active show" id="Contact">
                       <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
                     </div>
-                    <div class="tab-pane fade" id="functions.php">
+                    <div v-if="tab == 'functions'" class="tab-pane fade active show" id="functions.php">
                       <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
                     </div>
-                    <div class="tab-pane fade" id="front-page.php">
+                    <div v-if="tab == 'front-page'" class="tab-pane fade active show" id="front-page.php">
                       <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
                     </div>
                   </div>
@@ -173,6 +187,8 @@
 </template>
 
 <script>
+
+
 export default {
     name: 'Home',
     data (){
@@ -183,13 +199,17 @@ export default {
             email: "",
             tel: "",
             sections: "",
-            language: ""
+            language: "",
+            tab: "privacy",
+            isActive: true,
+            code: 'const a=1;'
         }
     }
 }
 </script>
 
 <style>
+
 #home{
     background-color: rgba(2,2,2,0.7);
     width: 80%;
