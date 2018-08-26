@@ -9,16 +9,19 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Navbar from './components/Navbar.vue'
-import Home from './components/Home.vue'
+import Header from './components/Header.vue';
+import Navbar from './components/Navbar.vue';
+import Home from './components/Home.vue';
+
+
+
 
 export default {
   name: 'app',
   components: {
     Header,
     Navbar,
-    Home
+    Home,
   }
 }
 </script>

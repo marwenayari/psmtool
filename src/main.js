@@ -5,21 +5,11 @@ import Home from './components/Home.vue'
 import About from './components/About.vue'
 import Plugins from './components/Plugins.vue'
 
-import VueHighlightJS from 'vue-highlight.js'
-//import highlightjs from 'highlightjs/highlight.pack.js'
-
-/*
- * Use Vue Highlight.js
- */
-Vue.use(VueHighlightJS);
-
-//highlightjs.initHighlightingOnLoad();
-
-/*
- * Import Highlight.js theme
- * Find more: https://highlightjs.org/static/demo/
- */
-import 'highlight.js/styles/dark.css';
+import "prismjs";
+import "prismjs/themes/prism-okaidia.css";
+import "prismjs/components/prism-scss.min";
+import Prism from "vue-prism-component";
+Vue.component("prism", Prism);
 
 
 Vue.use(VueRouter);
